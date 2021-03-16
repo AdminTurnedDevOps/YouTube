@@ -1,0 +1,2 @@
+name = "youtuberg"
+location = "eastus"
