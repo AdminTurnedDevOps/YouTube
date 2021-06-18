@@ -17,7 +17,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          repository: 'AdminTurnedDevOps/YouTube'
+          repository: 'YouTube'
 
       - name: cdk synth
         uses: youyo/aws-cdk-github-actions@v2
