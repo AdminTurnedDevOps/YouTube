@@ -32,6 +32,7 @@ jobs:
 
       - name: Install Requirements 
         run: 'pip3 install -r requirements.txt'
+        working-directory: CDK-AWS
 
       - name: CDK Synth
         run: cdk synth
