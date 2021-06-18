@@ -31,4 +31,4 @@ jobs:
         run: 'sudo npm install -g aws-cdk'
 
       - name: CDK Synth
-        run: 'cd ./AWS-CDK && cdk synth'
+        run: 'cd AWS-CDK && cdk synth'
