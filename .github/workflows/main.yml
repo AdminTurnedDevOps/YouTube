@@ -16,6 +16,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          repository: 'AdminTurnedDevOps/YouTube'
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -31,4 +33,4 @@ jobs:
         run: 'sudo npm install -g aws-cdk'
 
       - name: CDK Synth
-        run: 'cd ../AWS-CDK && cdk synth'
+        run: 'cd AWS-CDK && cdk synth'
