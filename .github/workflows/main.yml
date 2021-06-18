@@ -31,4 +31,5 @@ jobs:
         run: 'sudo npm install -g aws-cdk'
 
       - name: CDK Synth
-        run: cd 'YouTube/AWS-CDK' && cdk synth
+        run: cdk synth
+        working-directory: AWS-CDK
