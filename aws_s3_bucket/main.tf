@@ -11,8 +11,8 @@ terraform {
   }
 }
 
-resource "aws_s3_bucket" "srecoursebuf_s3" {
-  bucket = "srecoursebuf_s3_bucket"
+resource "aws_s3_bucket" "srecoursebuf-s3" {
+  bucket = "srecoursebufs3bucket"
   versioning {
     enabled = true
   }
