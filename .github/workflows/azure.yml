@@ -1,13 +1,10 @@
 name: 'Create Azure RG'
  
-on:
-  push:
-    branches:
-    - main
+on: workflow_dispatch
  
 jobs:
   terraform:
-    name: 'Terraform Auth'
+    name: 'Terraform Run'
     env:
       AZURE_CLIENT_ID: ${{ secrets.AZURE_AD_CLIENT_ID }}
       AZURE_CLIENT_SECRET: ${{ secrets.AZURE_AD_CLIENT_SECRET }}
@@ -15,6 +12,10 @@ jobs:
       AZURE_TENANT_ID: ${{ secrets.AZURE_AD_TENANT_ID }}
     runs-on: ubuntu-latest
     environment: dev
+
+    defaults:
+      run:
+        shell: bash
  
     steps:
     # Checkout the repository to the GitHub Actions runner
