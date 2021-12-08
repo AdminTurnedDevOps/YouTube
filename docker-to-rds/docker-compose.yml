@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysqlrds1
+    environment:
+      - DEBUG=true
+      - DB_DRIVER=mysql
+      - MYSQL_ROOT_PASSWORD=aEk86FMXIlq5DCln
+      - MYSQL_HOST=mysqlrds.csx4hqzfwtj2.us-east-1.rds.amazonaws.com
+      - DB_NAME=mysqlrds
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=aEk86FMXIlq5DCln
+    ports:
+      - "3306:3306"

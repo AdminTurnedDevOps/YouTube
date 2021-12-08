@@ -1,0 +1,41 @@
+name: 'Create Azure RG'
+ 
+on:
+  push:
+    branches:
+    - main
+ 
+jobs:
+  terraform:
+    name: 'Terraform Auth'
+    env:
+      AZURE_CLIENT_ID: ${{ secrets.AZURE_AD_CLIENT_ID }}
+      AZURE_CLIENT_SECRET: ${{ secrets.AZURE_AD_CLIENT_SECRET }}
+      AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      AZURE_TENANT_ID: ${{ secrets.AZURE_AD_TENANT_ID }}
+    runs-on: ubuntu-latest
+    environment: dev
+ 
+    steps:
+    # Checkout the repository to the GitHub Actions runner
+    - name: Checkout
+      uses: actions/checkout@v2
+ 
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v1
+
+    - name: Terraform Init
+      working-directory: azure-resource-group
+      run: terraform init 
+
+    - name: Terraform Format
+      working-directory: azure-resource-group
+      run: terraform fmt
+
+    - name: Terraform Plan
+      working-directory: azure-resource-group
+      run: terraform plan
+
+    - name: Terraform Apply
+      working-directory: azure-resource-group
+      run: terraform apply -auto-approve
