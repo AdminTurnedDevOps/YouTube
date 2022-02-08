@@ -1,4 +1,4 @@
-name: Create S3 bucket
+name: Terraform Workspaces
 
 on:
   workflow_dispatch
@@ -24,21 +24,10 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
 
-      - name: Terraform Init
+      - name: Terraform Workflow
         working-directory: aws_s3_bucket
         run: |
           terraform init
           terraform workspace new ${{ env.environment }}
           terraform workspace select ${{ env.environment }} && terraform plan
           terraform workspace select ${{ env.environment }} && terraform apply -auto-approve
-
-      # - name: Terraform Workspace
-      #   run: terraform workspace new ${{ env.environment }}
-
-      # - name: Terraform Plan
-      #   working-directory: aws_s3_bucket
-      #   run: terraform workspace select ${{ env.environment }} && terraform plan
-
-      # - name: Terraform Apply
-      #   working-directory: aws_s3_bucket
-      #   run: terraform workspace select ${{ env.environment }} && terraform apply -auto-approve
