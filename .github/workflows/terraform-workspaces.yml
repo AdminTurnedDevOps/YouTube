@@ -26,6 +26,7 @@ jobs:
 
       - name: Terraform Workspace
         run: terraform workspace new ${{ env.environment }}
+
       - name: Terraform Init
         working-directory: aws_s3_bucket
         run: |
@@ -37,8 +38,8 @@ jobs:
 
       - name: Terraform Plan
         working-directory: aws_s3_bucket
-        run: terraform workspace select staging && terraform plan
+        run: terraform workspace select ${{ env.environment }} && terraform plan
 
       - name: Terraform Apply
         working-directory: aws_s3_bucket
-        run: terraform workspace select staging && terraform apply -auto-approve
+        run: terraform workspace select ${{ env.environment }} && terraform apply -auto-approve
