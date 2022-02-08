@@ -1,9 +1,4 @@
 terraform {
-  backend "s3" {
-    bucket = "terraform-the-hard-way"
-    key    = "srecourse.tfstate"
-    region = "us-west-1"
-  }
   required_providers {
     aws = {
       source = "hashicorp/aws"
@@ -12,7 +7,7 @@ terraform {
 }
 
 resource "aws_s3_bucket" "srecoursebuf-s3" {
-  bucket = "srecoursebufs3bucket"
+  bucket = "terraformgithubactions"
   versioning {
     enabled = true
   }

@@ -13,5 +13,5 @@ features {}
 
 resource "azurerm_resource_group" "youtube-rg" {
     name = "test1"
-    location = var.location
+    location = "eastus"
 }
