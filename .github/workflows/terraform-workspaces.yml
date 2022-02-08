@@ -24,17 +24,13 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
 
-      - name: Terraform Workspace
-        run: terraform workspace new ${{ env.environment }}
-
       - name: Terraform Init
         working-directory: aws_s3_bucket
         run: |
           terraform init
 
-      - name: Terraform Format
-        working-directory: aws_s3_bucket
-        run: terraform fmt
+      - name: Terraform Workspace
+        run: terraform workspace new ${{ env.environment }}
 
       - name: Terraform Plan
         working-directory: aws_s3_bucket
