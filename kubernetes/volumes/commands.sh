@@ -1,5 +1,5 @@
-storageAccountName='tfstate92sg'
-resourceGroup='terraformthehardway'
+storageAccountName='test92'
+resourceGroup='devrelasaservice'
 
 storageKey=$(az storage account keys list --resource-group $resourceGroup --account-name $storageAccountName --query "[0].value" -o tsv)
 echo $storageKey
