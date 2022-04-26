@@ -46,12 +46,9 @@ spec:
         name: nginx
         volumeMounts:
           - mountPath: /youtube
-          # - mountPath: "/mnt/azure"
             name: azure
       volumes:
       - name: azure
-        # persistentVolumeClaim:
-        #   claimName: azurefile
         azureFile:
           secretName: azure-secret
           shareName: youtube
