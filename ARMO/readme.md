@@ -1,0 +1,1 @@
+`kubescape submit rbac --account your_account_id`
