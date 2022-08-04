@@ -1,0 +1,17 @@
+name: Kubescape scan
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+
+      - name: Kubescape Action
+        uses: otomato-gh/kubescape-action@v0.3.1
+        with:
+          ksversion: 'v2.0.158' 
